@@ -26,6 +26,7 @@ void printArray(double* ptr, int size) {
     {
         cout << ptr[i] << " ";
     }
+    cout << endl;
 }
 
 // Q4 arrayMax
