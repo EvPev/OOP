@@ -50,7 +50,7 @@ int main() {
         double* array = dynamicArray(n, m);
 
         double max = arrayMax(array, n);
-        cout << "The max value is: " << max << endl;
+        cout << "\nThe max value is: " << max << endl;
 
         printArray(array, n);
 
