@@ -39,7 +39,7 @@ int main() {
 
         double max = arrayMax(array, size);
 
-        cout << "The max value is: " << max << endl;
+        cout << "\nThe max value is: " << max << endl;
     }
 
     // Q5 & Q6 & Q7 & Q8 dynamicArray
