@@ -14,9 +14,6 @@ int main()
 
     PersonList list = createPersonList(n);
 
-    for (int i = 0; i < n; i++) {
-        cout << list.people[i].name << "|";
-        cout << list.people[i].age  << endl;
-    }
+
 
 }
