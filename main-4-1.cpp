@@ -2,12 +2,14 @@
 
 using namespace std;
 
-extern int* readNumbers();
+extern int* readNumbers(int length);
 extern int secondSmallestSum(int *numbers,int length);
 
 int main() {
-    int length = 10;
-    int* array = readNumbers();
+    cout << "Enter Length: ";
+    int length = 0;
+    cin >> length;
+    int* array = readNumbers(length);
     int secondSmallest = secondSmallestSum(array, length);
 
     cout << "The second smallest sum is: " << secondSmallest << endl;
