@@ -1,30 +1,61 @@
 #include <iostream>
-#include "Orchestra.h"
+#include "Musician.h"
 
 using namespace std;
 
-int main() 
+
+class Orchestra
 {
-    Orchestra a(20);
+    private:
+        int size;
+        Musician* memberArray;
 
-    cout << "Max members: " << a.get_size() << endl;
-    cout << "current members: " << a.get_current_number_of_members() << endl;
+    public:
+    // Constructors
+        Orchestra(int size)
+        {
+            this->size = size;
+            memberArray = new Musician[size];
+        }
+        Orchestra() : Orchestra(0) {}
+
+    // Destructors
+        ~Orchestra()
+        {
+            delete[] memberArray;
+        }
 
 
-    Musician tempM;
-    string instrumentTemp;
-    int b;
-    cout << "Add musician\nInstrument: ";
-    cin >> instrumentTemp;
-    tempM.set_instrument(instrumentTemp);
+    // Access
+        int get_size() {return size;}
 
-    cout << "Experience: ";
-    cin >> b;
-    tempM.set_experience(b);
+        int get_current_number_of_members()
+        {
+            int currentMembers = 0;
 
-    bool addTrue = a.add_musician(tempM);
-    
+            for (int i = 0; i < size; i++)
+            {
+                if (memberArray[i].get_instrument() != "null")
+                {
+                    currentMembers++;
+                }
+            }
+            return currentMembers;
+        }
 
-    if (addTrue == 1) {cout << "Musician added" << endl;}
-    else if (addTrue == 0) {cout << "Orchestra Full" << endl;}
-}
+        bool add_musician(Musician new_musician) 
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (memberArray[i].get_instrument() == "null")
+                {
+                    memberArray[i].set_instrument(new_musician.get_instrument());
+                    memberArray[i].set_experience(new_musician.get_experience());
+                    return true;
+                }
+            }
+            return false;         
+        }
+
+};
+
