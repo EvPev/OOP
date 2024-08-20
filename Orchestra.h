@@ -39,7 +39,7 @@ class Orchestra
 
             for (int i = 0; i < size; i++)
             {
-                if (memberArray[i].get_Instrument() != "null")
+                if (memberArray[i].get_instrument() != "null")
                 {
                     currentMembers++;
                 }
@@ -51,10 +51,10 @@ class Orchestra
         {
             for (int i = 0; i < size; i++)
             {
-                if (memberArray[i].get_Instrument() == "null")
+                if (memberArray[i].get_instrument() == "null")
                 {
-                    memberArray[i].set_Instrument(new_musician.get_Instrument());
-                    memberArray[i].set_Experience(new_musician.get_Experience());
+                    memberArray[i].set_instrument(new_musician.get_instrument());
+                    memberArray[i].set_experience(new_musician.get_experience());
                     return true;
                 }
             }

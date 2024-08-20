@@ -16,11 +16,11 @@ int main()
     int b;
     cout << "Add musician\nInstrument: ";
     cin >> instrumentTemp;
-    tempM.set_Instrument(instrumentTemp);
+    tempM.set_instrument(instrumentTemp);
 
     cout << "Experience: ";
     cin >> b;
-    tempM.set_Experience(b);
+    tempM.set_experience(b);
 
     bool addTrue = a.add_musician(tempM);
     

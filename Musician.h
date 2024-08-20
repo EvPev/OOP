@@ -25,11 +25,11 @@ public:
 
 
     //Access
-    string get_Instrument() {return instrument;}
-    void set_Instrument(string instrument) {this->instrument = instrument;}
+    string get_instrument() {return instrument;}
+    void set_instrument(string instrument) {this->instrument = instrument;}
 
-    int get_Experience() {return experience;}
-    void set_Experience(int experience) {this->experience = experience;}
+    int get_experience() {return experience;}
+    void set_experience(int experience) {this->experience = experience;}
 
 
 };

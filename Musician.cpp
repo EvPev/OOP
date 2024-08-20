@@ -9,10 +9,10 @@ int main()
 
     
 
-    cout << a.get_Instrument() << " " << a.get_Experience() << endl;
+    cout << a.get_instrument() << " " << a.get_experience() << endl;
 
-    a.set_Instrument("test");
-    a.set_Experience(10);
+    a.set_instrument("test");
+    a.set_experience(10);
 
-    cout << a.get_Instrument() << " " << a.get_Experience() << endl;
+    cout << a.get_instrument() << " " << a.get_experience() << endl;
 }
