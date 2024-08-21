@@ -1,33 +1,18 @@
-#include <iostream>
+#include "Musician.h"
 
 using namespace std;
 
-class Musician
+Musician::Musician() : Musician("null", 0) {}
+
+Musician::Musician(string instrument, int experience) 
 {
-private:
-    string instrument;
-    int experience;
-public:
-    // Constructors
-    Musician(string instrument, int experience)
-    {
-        this->instrument = instrument;
-        this->experience = experience;
-    };
-    Musician() : Musician("null", 0) {}
+    this->instrument = instrument;
+    this->experience = experience;
+}
 
-    // Destructors
-    ~Musician();
+string Musician::get_instrument() {return instrument;}
+void Musician::set_instrument(string instrument) {this->instrument = instrument;}
 
 
-    //Access
-    string get_instrument() {return instrument;}
-    void set_instrument(string instrument) {this->instrument = instrument;}
-
-    int get_experience() {return experience;}
-    void set_experience(int experience) {this->experience = experience;}
-
-
-};
-
-Musician::~Musician(){}
+int Musician::get_experience() {return experience;}
+void Musician::set_experience(int experience) {this->experience = experience;}

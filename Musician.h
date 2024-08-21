@@ -1,39 +1,24 @@
-#include <iostream>
-
-using namespace std;
-
 #ifndef MUSICIAN_H
 #define MUSICIAN_H
 
+#include <string>
 
-class Musician
-{
+using namespace std;
+
+class Musician {
 private:
     string instrument;
     int experience;
+    
+
 public:
-    // Constructors
-    Musician(string instrument, int experience)
-    {
-        this->instrument = instrument;
-        this->experience = experience;
-    };
-    Musician() : Musician("null", 0) {}
+    Musician();
+    Musician(string instrument, int experience);
+    string get_instrument();
+    void set_instrument(string instrument);
 
-    // Destructors
-    ~Musician();
-
-
-    //Access
-    string get_instrument() {return instrument;}
-    void set_instrument(string instrument) {this->instrument = instrument;}
-
-    int get_experience() {return experience;}
-    void set_experience(int experience) {this->experience = experience;}
-
-
+    int get_experience();
+    void set_experience(int experience);
 };
-
-Musician::~Musician(){}
 
 #endif

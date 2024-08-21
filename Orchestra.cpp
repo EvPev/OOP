@@ -1,61 +1,67 @@
 #include <iostream>
 #include "Musician.h"
+#include "Orchestra.h"
 
 using namespace std;
 
-
-class Orchestra
+// Constructors
+Orchestra::Orchestra(int size)
 {
-    private:
-        int size;
-        Musician* memberArray;
+    this->size = size; 
+    memberArray = new Musician[size];
+}
 
-    public:
-    // Constructors
-        Orchestra(int size)
-        {
-            this->size = size;
-            memberArray = new Musician[size];
-        }
-        Orchestra() : Orchestra(0) {}
+Orchestra::Orchestra() : Orchestra(0) {}
 
-    // Destructors
-        ~Orchestra()
-        {
-            delete[] memberArray;
-        }
+// Destructors
+Orchestra::~Orchestra()
+{
+    delete[] memberArray;
+}
 
 
-    // Access
-        int get_size() {return size;}
+// Access
+int Orchestra:: get_size() {return size;}
 
-        int get_current_number_of_members()
-        {
-            int currentMembers = 0;
+int Orchestra:: get_current_number_of_members()
+{
+    int currentMembers = 0;
 
-            for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
+    {
+        if (memberArray[i].get_instrument() != "null")
             {
-                if (memberArray[i].get_instrument() != "null")
-                {
-                    currentMembers++;
-                }
+                currentMembers++;
             }
-            return currentMembers;
-        }
+    }
+    return currentMembers;
+}
 
-        bool add_musician(Musician new_musician) 
+bool Orchestra:: add_musician(Musician new_musician) 
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (memberArray[i].get_instrument() == "null")
         {
-            for (int i = 0; i < size; i++)
-            {
-                if (memberArray[i].get_instrument() == "null")
-                {
-                    memberArray[i].set_instrument(new_musician.get_instrument());
-                    memberArray[i].set_experience(new_musician.get_experience());
-                    return true;
-                }
-            }
-            return false;         
+            memberArray[i].set_instrument(new_musician.get_instrument());
+            memberArray[i].set_experience(new_musician.get_experience());
+            return true;
         }
+    }
+    return false;         
+}
 
-};
+bool Orchestra:: has_instrument(string checkedInstrument)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (memberArray[i].get_instrument() == checkedInstrument)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+Musician* Orchestra::get_members() {return memberArray;}
 
