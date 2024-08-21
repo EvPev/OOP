@@ -36,9 +36,9 @@ using namespace std;
         {
             if (units[i].get_Area() == 0)
             {
-                units[i].set_Area(unit.get_Area());
-                units[i].set_Value(unit.get_Value());
-                units[i].set_Num_Bedrooms(unit.get_Num_Bedrooms());
+                if (unit.get_Area() > 0) {units[i].set_Area(unit.get_Area());}
+                if (unit.get_Value() > 0) {units[i].set_Value(unit.get_Value());}
+                if (unit.get_Num_Bedrooms() > 0) {units[i].set_Num_Bedrooms(unit.get_Num_Bedrooms());}
                 return true;
             }
         }

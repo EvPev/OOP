@@ -9,7 +9,7 @@ int main()
     int units_n = 2;
     ApartmentBuilding a(units_n);
     Unit unit1(0,0,0);
-    Unit unit2(270000,3,120);
+    Unit unit2(-1000000,-3,-20);
 
     cout << "Capacity: " << a.get_Capacity() << endl;
 
