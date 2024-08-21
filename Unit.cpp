@@ -19,6 +19,7 @@ int Unit::get_Num_Bedrooms() {return num_Bedrooms;}// returns the number of bedr
 int Unit::get_Value() {return m_Value;} // returns the value in dollars of the Unit
 double Unit::get_Area() {return area;}
 
-void Unit::set_Num_Bedrooms(int num_Bedrooms) {this->num_Bedrooms = num_Bedrooms;}
-void Unit::set_Value(int m_Value) {this->m_Value = m_Value;}
-void Unit::set_Area(double area) {this->area = area;}
+void Unit::set_Num_Bedrooms(int num_Bedrooms) {if (num_Bedrooms > 0) {this->num_Bedrooms = num_Bedrooms;}}
+    
+void Unit::set_Value(int m_Value) {if (m_Value > 0) {this->m_Value = m_Value;}}
+void Unit::set_Area(double area) {if (area > 0) {this->area = area;}}
