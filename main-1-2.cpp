@@ -6,12 +6,12 @@ using namespace std;
 
 int main()
 {
-    int units_n = 5;
+    int units_n = 2;
     ApartmentBuilding a(units_n);
-    Unit unit1(10,10,10);
-    Unit unit2(200,200,200);
+    Unit unit1(0,0,0);
+    Unit unit2(270000,3,120);
 
-     cout << "Capacity: " << a.get_Capacity() << endl;
+    cout << "Capacity: " << a.get_Capacity() << endl;
 
     cout << "Current Units: " << a.get_Current_Number_of_Units() << endl;
 

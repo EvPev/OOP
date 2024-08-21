@@ -9,9 +9,9 @@ Unit::Unit(int m_Value, int num_Bedrooms, double area)
     this-> num_Bedrooms = num_Bedrooms;
     this-> area = area;
 
-    cout << m_Value <<endl;
-    cout << num_Bedrooms <<endl;
-    cout << area <<endl;
+    cout << "unit value "<< m_Value <<endl;
+    cout << "unit bedrooms "<< num_Bedrooms <<endl;
+    cout << "unit area "<< area <<endl;
 }     
 Unit::Unit() : Unit(0,0,0) {}
 
