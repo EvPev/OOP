@@ -9,9 +9,7 @@ using namespace std;
     ApartmentBuilding::ApartmentBuilding(int m_Capacity) 
     {
         this->m_Capacity = m_Capacity;
-        cout << "Capacity " << m_Capacity <<endl;
         units = new Unit[m_Capacity];
-        cout << "generated array of default units "<< endl;
     }  
 
     int ApartmentBuilding::get_Current_Number_of_Units() 
