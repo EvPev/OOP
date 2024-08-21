@@ -5,9 +5,12 @@ using namespace std;
 
 Unit::Unit(int m_Value, int num_Bedrooms, double area)
 {
+    if (m_Value > 0 && num_Bedrooms > 0 && area > 0) 
+    {
     this-> m_Value = m_Value;
     this-> num_Bedrooms = num_Bedrooms;
     this-> area = area;
+    }
 }     
 Unit::Unit() : Unit(0,0,0) {}
 
