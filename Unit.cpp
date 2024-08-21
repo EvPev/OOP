@@ -11,6 +11,9 @@ Unit::Unit(int m_Value, int num_Bedrooms, double area)
     this-> num_Bedrooms = num_Bedrooms;
     this-> area = area;
     }
+    else {this-> m_Value = 0;
+    this-> num_Bedrooms = 0;
+    this-> area = 0;}
 }     
 Unit::Unit() : Unit(0,0,0) {}
 
