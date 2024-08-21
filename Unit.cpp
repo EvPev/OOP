@@ -8,6 +8,10 @@ Unit::Unit(int m_Value, int num_Bedrooms, double area)
     this-> m_Value = m_Value;
     this-> num_Bedrooms = num_Bedrooms;
     this-> area = area;
+
+    cout << m_Value <<endl;
+    cout << num_Bedrooms <<endl;
+    cout << area <<endl;
 }     
 Unit::Unit() : Unit(0,0,0) {}
 

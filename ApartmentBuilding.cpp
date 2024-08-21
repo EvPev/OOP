@@ -10,6 +10,7 @@ using namespace std;
     {
         this->m_Capacity = m_Capacity;
         units = new Unit[m_Capacity];
+        cout << m_Capacity <<endl;
     }  
 
     int ApartmentBuilding::get_Current_Number_of_Units() 
