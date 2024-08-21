@@ -17,6 +17,7 @@ class ApartmentBuilding
         ApartmentBuilding(int m_Capacity);  
 
         int get_Current_Number_of_Units(); 
+        int get_Capacity(); 
         Unit * get_Contents();
         bool add_Unit(Unit unit);
         ~ApartmentBuilding();

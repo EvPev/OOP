@@ -26,6 +26,7 @@ using namespace std;
     } 
 
     Unit* ApartmentBuilding::get_Contents() {return units;}
+    int ApartmentBuilding::get_Capacity() {return m_Capacity;}
 
     bool ApartmentBuilding::add_Unit(Unit unit) 
     {
