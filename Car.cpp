@@ -9,6 +9,7 @@ Car::Car(int ID)
 {
     this->ID = ID;
     this->timeOfEntry = time(0);
+    real = 1;
 }
 int Car::getParkingDuration() 
 {

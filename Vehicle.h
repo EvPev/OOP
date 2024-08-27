@@ -10,6 +10,7 @@ class Vehicle
     protected:
         time_t timeOfEntry;
         int ID;
+        bool real;
         
 
     public:
@@ -20,6 +21,7 @@ class Vehicle
         time_t get_TOE();
         int get_ID();
         int  virtual getParkingDuration();
+        bool get_real();
 };
 
 #endif

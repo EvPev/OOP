@@ -4,14 +4,21 @@
 using namespace std;
 
 ParkingLot::ParkingLot() : ParkingLot(10) {}
-ParkingLot::ParkingLot(int num_vehicles) 
+ParkingLot::ParkingLot(int capacity) 
 {
-    this->num_vehicles = num_vehicles;
-    vehicles = new Vehicle*[num_vehicles];
+    this->capacity = capacity;
+    vehicles = new Vehicle*[capacity];
 }
 
+int ParkingLot::getCount() 
+{
+    int count = 0;
+    for (int i = 0; i < capacity; i++)
+    {
+        if (vehicles[i]->get_real() == 1) {count++;}
+    }
+    
+}
 
-
-int ParkingLot::getCount() {}
 void ParkingLot::parkVehicle(Vehicle* parkingVehicle) {}
 void ParkingLot::unparkVehicle(int ID) {}

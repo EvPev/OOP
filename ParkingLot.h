@@ -10,11 +10,11 @@ class ParkingLot
 {
     private:
         Vehicle** vehicles;
-        int num_vehicles;
+        int capacity;
 
     public:
         ParkingLot();
-        ParkingLot(int num_vehicles);
+        ParkingLot(int capacity);
         int getCount();
         void parkVehicle(Vehicle* parkingVehicle);
         void unparkVehicle(int ID);

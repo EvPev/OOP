@@ -9,6 +9,7 @@ Bus::Bus(int ID)
 {
     this->ID = ID;
     this->timeOfEntry = time(0);
+    real = 1;
 }
 
 
