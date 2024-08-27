@@ -10,7 +10,7 @@ class Motorbike: public Vehicle
     private:
 
     public:
-        using Vehicle::Vehicle;
+        Motorbike(int ID);
         int getParkingDuration();
 
 };

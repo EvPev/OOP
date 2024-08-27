@@ -3,6 +3,13 @@
 #include "Motorbike.h"
 
 using namespace std;
+
+Motorbike::Motorbike(int ID)
+{
+    this->ID = ID;
+    this->timeOfEntry = time(0);
+}
+
 int Motorbike::getParkingDuration() 
 {
     int park_time = time(0) - timeOfEntry;
