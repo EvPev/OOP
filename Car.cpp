@@ -4,6 +4,7 @@
 
 using namespace std;
 
+Car::Car() : Car(0) {}
 Car::Car(int ID)
 {
     this->ID = ID;

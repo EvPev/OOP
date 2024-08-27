@@ -24,11 +24,11 @@ int main()
 
     Vehicle* a_vehicles[num_vehicles];
     {
-        for (int i = 0; i < cars; i++) {a_vehicles[i] = new Car();}
+        for (int i = 0; i < cars; i++) {a_vehicles[i] = new Car(10);}
 
-        for (int i = cars; i < (cars + busses); i++) {a_vehicles[i] = new Bus();}
+        for (int i = cars; i < (cars + busses); i++) {a_vehicles[i] = new Bus(10);}
 
-        for (int i = (cars + busses); i < (num_vehicles); i++) {a_vehicles[i] = new Motorbike();}
+        for (int i = (cars + busses); i < (num_vehicles); i++) {a_vehicles[i] = new Motorbike(10);}
     }
     
     for (int i = 0; i < num_vehicles; i++)

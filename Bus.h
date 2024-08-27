@@ -11,6 +11,7 @@ class Bus: public Vehicle
     private:
 
     public:
+        Bus();
         Bus(int ID);
         int getParkingDuration();
 

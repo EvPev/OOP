@@ -4,6 +4,8 @@
 
 using namespace std;
 
+Motorbike::Motorbike() : Motorbike(0) {}
+
 Motorbike::Motorbike(int ID)
 {
     this->ID = ID;

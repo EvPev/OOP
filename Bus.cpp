@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+Bus::Bus() : Bus(0){}
 Bus::Bus(int ID)
 {
     this->ID = ID;
