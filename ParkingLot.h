@@ -1,4 +1,6 @@
-#pragma oncce
+
+#ifndef PARKINGLOT_H
+#define PARKINGLOT_H
 #include <iostream>
 #include "Vehicle.h"
 
@@ -20,3 +22,6 @@ class ParkingLot
         int countOverStayingVehicles(int maxParkingDuration);
 
 };
+
+
+#endif

@@ -1,4 +1,6 @@
-#pragma oncce
+#ifndef VEHICLE_H
+#define VEHICLE_H
+
 #include <iostream>
 #include <ctime>
 
@@ -24,3 +26,5 @@ class Vehicle
         int  virtual getParkingDuration();
         bool get_real();
 };
+
+#endif

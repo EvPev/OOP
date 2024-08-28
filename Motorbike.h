@@ -1,4 +1,5 @@
-#pragma oncce
+#ifndef MOTORBIKE_H
+#define MOTORBIKE_H
 #include <iostream>
 
 using namespace std;
@@ -13,3 +14,4 @@ class Motorbike: public Vehicle
         int getParkingDuration();
 
 };
+#endif

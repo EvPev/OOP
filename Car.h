@@ -1,7 +1,9 @@
-#pragma oncce
+#ifndef CAR_H
+#define CAR_H
 #include <iostream>
 
 using namespace std;
+
 
 class Car: public Vehicle
 {
@@ -15,3 +17,6 @@ class Car: public Vehicle
 
 
 };
+
+
+#endif
