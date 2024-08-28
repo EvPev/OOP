@@ -5,10 +5,8 @@
 using namespace std;
 
 Bus::Bus() : Bus(0){}
-Bus::Bus(int ID)
+Bus::Bus(int ID) : Vehicle(ID)
 {
-    this->ID = ID;
-    this->timeOfEntry = time(0);
     real = 1;
 }
 

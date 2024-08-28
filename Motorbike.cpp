@@ -6,10 +6,8 @@ using namespace std;
 
 Motorbike::Motorbike() : Motorbike(0) {}
 
-Motorbike::Motorbike(int ID)
+Motorbike::Motorbike(int ID) : Vehicle(ID)
 {
-    this->ID = ID;
-    this->timeOfEntry = time(0);
     real = 1;
 }
 

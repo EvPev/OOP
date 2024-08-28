@@ -5,10 +5,8 @@
 using namespace std;
 
 Car::Car() : Car(0) {}
-Car::Car(int ID)
+Car::Car(int ID) : Vehicle(ID)
 {
-    this->ID = ID;
-    this->timeOfEntry = time(0);
     real = 1;
 }
 int Car::getParkingDuration() 
