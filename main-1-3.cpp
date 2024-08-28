@@ -30,7 +30,7 @@ int main()
 
 
 
-    int overstaingV = p_lot.countOverStayingVehicles(15);
+    int overstaingV = p_lot.countOverstayingVehicles(15);
     cout << overstaingV << " vehicles are overstaying" << endl;
     
 }
