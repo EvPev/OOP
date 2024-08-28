@@ -10,6 +10,7 @@ Vehicle::Vehicle(int ID)
     real = 0;
 }
 Vehicle::Vehicle():Vehicle(0) {}
+Vehicle:: ~Vehicle() {}
 
 time_t Vehicle:: get_TOE() {return timeOfEntry;}
 int Vehicle:: get_ID() {return ID;}

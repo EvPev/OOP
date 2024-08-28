@@ -14,6 +14,15 @@ ParkingLot::ParkingLot(int capacity)
     }
 }
 
+ParkingLot::~ParkingLot() {
+    for (int i = 0; i < capacity; i++)
+    {
+        delete vehicles[i];
+    }
+     delete[] vehicles;
+     }
+
+
 int ParkingLot::getCount() 
 {
     int count = 0;
