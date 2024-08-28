@@ -5,17 +5,11 @@
 using namespace std;
 
 
-class Car: public Vehicle
-{
-    private:
-
+class Car: public Vehicle {
     public:
         Car();
         Car(int ID);
         int getParkingDuration();
-        
-
-
 };
 
 
