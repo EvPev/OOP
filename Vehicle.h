@@ -1,9 +1,10 @@
+#pragma oncce
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
-#ifndef VEHICLE_H
-#define VEHICLE_H
+
 
 class Vehicle
 {
@@ -23,5 +24,3 @@ class Vehicle
         int  virtual getParkingDuration();
         bool get_real();
 };
-
-#endif

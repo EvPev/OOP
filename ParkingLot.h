@@ -1,10 +1,9 @@
+#pragma oncce
 #include <iostream>
 #include "Vehicle.h"
 
 using namespace std;
 
-#ifndef PARKINGLOT_H
-#define PARKINGLOT_H
 
 class ParkingLot
 {
@@ -21,6 +20,3 @@ class ParkingLot
         int countOverStayingVehicles(int maxParkingDuration);
 
 };
-
-
-#endif
