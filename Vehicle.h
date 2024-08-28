@@ -20,11 +20,13 @@ class Vehicle
     // Constructors
         Vehicle();
         Vehicle(int ID);
+        virtual ~Vehicle();
 
         time_t get_TOE();
         int get_ID();
         int  virtual getParkingDuration();
         bool get_real();
+
 };
 
 #endif
