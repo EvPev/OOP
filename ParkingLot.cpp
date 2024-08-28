@@ -66,7 +66,7 @@ void ParkingLot::unparkVehicle(int ID)
     if (unparkedTrue == 0) {cout << "Vehicle not in the lot" << endl;}
 }
 
-int ParkingLot:: countOverStayingVehicles(int maxParkingDuration)
+int ParkingLot:: countOverstayingVehicles(int maxParkingDuration)
 {
     int count = 0;
     for (int i = 0; i < capacity; i++)
