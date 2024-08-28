@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Player.h"
-#include "Wizard.h"
+#include "player.h"
+#include "wizard.h"
 
 using namespace std;
 

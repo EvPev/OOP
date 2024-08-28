@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Player.h"
-#include "Warrior.h"
+#include "player.h"
+#include "warrior.h"
 
 using namespace std;
 
