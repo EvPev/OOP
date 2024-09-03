@@ -10,6 +10,6 @@ Fridge::Fridge():Fridge(0,0){}
 void Fridge::setVolume(double volume){this->volume = volume;}
 double Fridge::getVolume(){return volume;}
 
-double Fridge::getPowerConsumption(){return (powerRating * 24 * (volume / 1000));}
+double Fridge::getPowerConsumption(){return (powerRating * 24 * (volume / 100));}
 
 Fridge:: ~Fridge(){}
