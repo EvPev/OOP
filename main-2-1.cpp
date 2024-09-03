@@ -15,6 +15,8 @@ int main()
 
     a.turnOn();
 
+    a.setVolume(10);
+
     cout << "Status: ";
     if(a.get_isOn() == 1)
     {cout << "On" << endl;
