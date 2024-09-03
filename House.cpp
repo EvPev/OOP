@@ -25,7 +25,7 @@ Appliance* House::getAppliance(int position){return appliances[position];}
 bool House::addAppliance(Appliance* appliance)
 {
     for (int i = 0; i < numAppliances; i++) {
-        if (appliances[i]->getIsOn() == 0) {appliances[i] = appliance;}
+        if (appliances[i]->get_isOn() == 0) {appliances[i] = appliance;}
         return true;
     }
     return false;
@@ -34,7 +34,7 @@ double House::getTotalPowerConsumption()
 {
     double totalPowerConsumption = 0;
     for (int i = 0; i < numAppliances; i++) {
-        if (appliances[i]->getIsOn() == 0) {
+        if (appliances[i]->get_isOn() == 0) {
             totalPowerConsumption += appliances[i]->getPowerConsumption();
         }
     }

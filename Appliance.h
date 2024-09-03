@@ -14,10 +14,10 @@ class Appliance
         Appliance(int powerRating);
         Appliance();
 
-        int getPowerRating();
-        void setPowerRating(int powerRating);
+        int get_powerRating();
+        void set_powerRating(int powerRating);
 
-        bool getIsOn();
+        bool get_isOn();
         void turnOn();
         void turnOff();
 
