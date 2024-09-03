@@ -21,7 +21,7 @@ class Appliance
         void turnOn();
         void turnOff();
 
-        virtual double getPowerConsumption() = 0;
+        virtual double getPowerConsumption();
 
         virtual ~Appliance();
 };

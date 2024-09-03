@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    class phone: public Appliance {};
+    Appliance* appliance = new Appliance(100);
 
 
 }
