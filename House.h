@@ -10,6 +10,7 @@ class House
     protected:
         int numAppliances;
         Appliance** appliances;
+        int currentNumAppliances;
     public:
         House();
         House(int numAppliances);

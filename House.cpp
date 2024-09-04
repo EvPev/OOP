@@ -10,11 +10,12 @@ House::House():House(0){}
 House::House(int numAppliances) 
 {
     this->numAppliances = numAppliances;
-    appliances = new Appliance* [numAppliances]{};
+    appliances = new Appliance* [numAppliances];
+    currentNumAppliances = 0;
 };
 
 House:: ~House(){
-    for (int i = 0; i < numAppliances; i++) {
+    for (int i = 0; i < currentNumAppliances; i++) {
         delete appliances[i];
     }
     delete[] appliances;
@@ -24,17 +25,16 @@ Appliance* House::getAppliance(int position){return appliances[position];}
 
 bool House::addAppliance(Appliance* appliance)
 {
-    for (int i = 0; i < numAppliances; i++) {
-        if (appliances[i]->get_isOn() == 0) {appliances[i] = appliance;}
-        return true;
-    }
-    return false;
+    if(currentNumAppliances >= numAppliances) {return false;}
+    appliances[currentNumAppliances] = appliance;
+    currentNumAppliances++;
+    return true;
 }
 double House::getTotalPowerConsumption()
 {
     double totalPowerConsumption = 0;
-    for (int i = 0; i < numAppliances; i++) {
-        if (appliances[i]->get_isOn() == 0) {
+    for (int i = 0; i < currentNumAppliances; i++) {
+        if (appliances[i]->get_isOn() == 1) {
             totalPowerConsumption += appliances[i]->getPowerConsumption();
         }
     }

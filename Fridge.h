@@ -18,7 +18,7 @@ class Fridge: public Appliance
 
         double getPowerConsumption();
 
-        ~Fridge();
+        // ~Fridge();
 };
 
 #endif

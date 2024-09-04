@@ -23,6 +23,6 @@ class Appliance
 
         virtual double getPowerConsumption();
 
-        virtual ~Appliance();
+        virtual ~Appliance() = default;
 };
 #endif

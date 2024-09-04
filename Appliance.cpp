@@ -16,5 +16,5 @@ void Appliance::turnOff()   {isOn = false;}
 
 double Appliance::getPowerConsumption() {return 0;}
 
-Appliance:: ~Appliance(){}
+// Appliance:: ~Appliance(){}
 

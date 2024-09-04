@@ -18,7 +18,7 @@ class TV: public Appliance
 
         double getPowerConsumption();
 
-        ~TV();
+        // ~TV();
 
 
 
