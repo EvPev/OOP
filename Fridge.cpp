@@ -5,7 +5,7 @@
 using namespace std;
 
 Fridge::Fridge(int powerRating, double volume) :Appliance(powerRating) {this->volume = volume;}
-Fridge::Fridge():Appliance(0){}
+Fridge::Fridge():Fridge(0,0){}
 
 void Fridge::setVolume(double volume){this->volume = volume;}
 double Fridge::getVolume(){return volume;}

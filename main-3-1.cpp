@@ -37,7 +37,6 @@ int main()
     cout << "Appliance Added: ";
     if(added == 1) {cout << "True" << endl;}
     else {cout << "False" << endl;}
-    
 
-    // cout << "Total Power Consumption: " << house.getTotalPowerConsumption() << endl;
+    cout << "Total Power Consumption: " << house.getTotalPowerConsumption() << endl;
 }
