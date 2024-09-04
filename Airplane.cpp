@@ -5,7 +5,7 @@
 using namespace std;
 
 Airplane::Airplane(): Airplane(0,0){}                      
-Airplane::Airplane(int w, int p): AirCraft(w) {numPassengers = p; if (numPassengers > 0) {numPassengers = 0;}}
+Airplane::Airplane(int w, int p): AirCraft(w) {numPassengers = p;}
 
 void Airplane::reducePassengers(int x) {
     numPassengers = numPassengers - x;
