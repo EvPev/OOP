@@ -12,14 +12,11 @@ void Helicopter::set_name(string name) {this->name = name;}
 
 
 void Helicopter::fly(int headwind, int minutes){
-    if (fuel >= 20){
-        double fuelUseage = 0;
-        if (headwind <= 40) {fuelUseage = 0.2 * minutes;}
-        else if (headwind >= 40) {fuelUseage = 0.4 * minutes;}
+    double tempFuel = fuel;
+    if (headwind <= 40) {tempFuel -= 0.2 * minutes;}
+    else if (headwind >= 40) {tempFuel -= 0.4 * minutes;}
 
-        if (weight > 5670) {fuelUseage = fuelUseage + (0.01 * (weight - 5670));}
+    if (weight > 5670) {tempFuel -= ((0.01 * (weight - 5670)) * minutes);}
 
-        fuel = fuel - fuelUseage;
-        numberOfFlights++;
-    }
+    if (tempFuel >= 20) {fuel = tempFuel; numberOfFlights++;}
 }
