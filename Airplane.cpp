@@ -8,8 +8,8 @@ Airplane::Airplane(): Airplane(0,0){}
 Airplane::Airplane(int w, int p): AirCraft(w) {numPassengers = p; if (numPassengers > 0) {numPassengers = 0;}}
 
 void Airplane::reducePassengers(int x) {
-    numPassengers -= x;
-    if (numPassengers > 0) {numPassengers = 0;}
+    numPassengers = numPassengers - x;
+    if (numPassengers < 0) {numPassengers = 0;}
     }
 int Airplane::get_numPassengers() {return numPassengers;} 
         

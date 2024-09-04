@@ -6,8 +6,9 @@ using namespace std;
 
 int main()
 {
-    Helicopter a(5000, "star");
-    a.fly(40,30);
+    Helicopter a(5690, "star");
+    a.set_fuel(80);
+    a.fly(45,10);
 
     cout << "weight: " << a.get_weight() << endl;
     cout << "Fuel: " << a.get_fuel() << endl;
