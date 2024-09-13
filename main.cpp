@@ -8,9 +8,10 @@ using namespace sf;
 int main()
 {
     RenderWindow window(sf::VideoMode(1012, 512), "RayCon");
-    CircleShape shape(10.f);
+    CircleShape shape(20,3);
     shape.setFillColor(sf::Color::Yellow);
     shape.setOrigin(Vector2f(5 ,5));
+    shape.setPosition(Vector2f(100, 100));
     
 
 
@@ -25,9 +26,15 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-        }
 
-        
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {shape.move(Vector2f(1,2));}
+
+
+
+
+
+        } 
     }
 
     return 0;

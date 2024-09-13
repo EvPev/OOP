@@ -2,15 +2,18 @@
 #define PLAYER_H
 #include <iostream>
 #include "Entity.h"
+#include <SFML/Graphics.hpp>
 
 using namespace std;
 
 class Player: public Entity
 {
-    Player(int px, int py);
-    Player();   
-    ~Player();
+    public:
+        Player(int px, int py);
+        Player();   
+        ~Player();
 
+    
 
 };
 
