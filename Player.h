@@ -1,16 +1,15 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-#include "Entity.h"
 #include <SFML/Graphics.hpp>
+#include "Entity.h"
 
 using namespace std;
 
 class Player: public Entity
 {
     public:
-        Player(int px, int py);
-        Player();   
+        Player(int r, int x, int y);
         ~Player();
 
     

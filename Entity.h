@@ -1,24 +1,36 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 #include <iostream>
-
-using namespace std;
+#include <SFML/Graphics.hpp>
 
 class Entity
 {
     protected:
-        int px;
-        int py;
+        // Entity position
+        float x;
+        float y;
+        // Entity angle
+        float dx;
+        float dy;
+        float a;
+
+
+        sf::CircleShape* body;
+        
+    
     public:
-        Entity(int px, int py);
-        Entity();
+        Entity(float r, float x, float y);
         ~Entity();
 
-        void set_px(int px);
-        void set_py(int py);
+        void draw(sf::RenderWindow* gameWindow) {
+            gameWindow->draw(*body);
+        }
 
-        int get_px();
-        int get_py();
+
+        void move_forward(int speed);
+        void move_backward(int speed);
+        void turn_left(float speed);
+        void turn_right(float speed);
 };
 
 #endif

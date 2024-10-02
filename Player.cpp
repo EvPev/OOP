@@ -4,6 +4,5 @@
 
 using namespace std;
 
-Player::Player(int px, int py) : Entity(px,py) {}
-Player::Player() : Player(0,0) {}
+Player::Player(int r, int x, int y) : Entity(r, x, y) {}
 Player::~Player() {}
