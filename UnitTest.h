@@ -18,6 +18,12 @@ private:
             std::cout << "Test 1 failed!" << std::endl;
         }
         // Add more tests here
+        if (addition.add(1, 5) != 6) {
+            std::cout << "Test 1 failed!" << std::endl;
+        }
+        if (addition.add(1, 3) != 4) {
+            std::cout << "Test 1 failed!" << std::endl;
+        }
     }
 };
 
