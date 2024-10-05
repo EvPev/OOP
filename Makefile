@@ -4,6 +4,6 @@ main: main.cpp Game.cpp Entity.cpp Player.cpp -lsfml-graphics -lsfml-window -lsf
 	./test
 
 
-test: test.cpp
-	g++ -Wall -o test test.cpp
+test: TestMain.cpp
+	g++ -Wall -o test TestMain.cpp
 	./test

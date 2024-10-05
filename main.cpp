@@ -1,12 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Game.h"
-#include "Entity.h"
-#include "Player.h"
+
 
 int main()
 {
-    sf::Vector2f size(1200,500);
+    sf::Vector2f size(640,480);
     Game game(size, "RayCaster");
     game.run();
 }

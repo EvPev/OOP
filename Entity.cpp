@@ -20,6 +20,11 @@ Entity::Entity(float r, float x, float y)
 
 Entity::~Entity() {}
 
+
+void Entity:: draw(sf::RenderWindow* gameWindow) {
+    gameWindow->draw(*body);
+}
+
 void Entity::move_forward(int speed){
     body->move(-dx,-dy);
 }

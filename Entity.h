@@ -22,9 +22,7 @@ class Entity
         Entity(float r, float x, float y);
         ~Entity();
 
-        void draw(sf::RenderWindow* gameWindow) {
-            gameWindow->draw(*body);
-        }
+        void draw(sf::RenderWindow* gameWindow);
 
 
         void move_forward(int speed);

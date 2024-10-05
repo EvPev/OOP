@@ -1,63 +1,59 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Game.h"
+#include "Entity.h"
 #include "Player.h"
 
 // Game Constructor
 Game::Game(sf::Vector2f size,std::string title) 
     {
+        // Game Window
         gameWindow = new sf::RenderWindow(sf::VideoMode(size.x,size.y),title);
 
-        player = new Entity(10,100,100);
-
-        int map[10][10] = {
-            {1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,0,0,0,0,0,0,0,0,1}, 
-            {1,1,1,1,1,1,1,1,1,1}
-        };
+        // Player
+        player = new Player(10,50,50);
     }
 
 // Destructor
-Game::~Game(){}
+Game::~Game(){
+    delete gameWindow;
+    delete player;
+}
 
 
 
-
+// Game Loop
 void Game::run()
+{
+    while (gameWindow->isOpen())
     {
-        while (gameWindow->isOpen())
+        sf::Event event;
+        while (gameWindow->pollEvent(event))
         {
-            sf::Event event;
-            while (gameWindow->pollEvent(event))
-            {
-                if(event.type == sf::Event::Closed) {
-                    gameWindow->close();}
+            // Close Window
+            if(event.type == sf::Event::Closed) {gameWindow->close();}
 
-
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-                    player->move_forward(1);
-                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                    player->move_backward(1);
-                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-                    player->turn_left(0.1);
-                }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                    player->turn_right(0.1);
-                }
-
-
+            // Player Movement
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                player->move_forward(1);
             }
-            gameWindow->clear();
-
-            player->draw(gameWindow);
-
-            gameWindow->display();
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                player->move_backward(1);
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                player->turn_left(0.1);
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                player->turn_right(0.1);
+            }
         }
+
+        gameWindow->clear(sf::Color::Black); // clear old frame
+
+        // Draw game 
+        player->draw(gameWindow);
+        gameWindow->display(); 
+        
     }
+}
 
