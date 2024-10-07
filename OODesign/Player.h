@@ -21,6 +21,8 @@ private:
     double dirX, dirY;     // Player direction vector
     double planeX, planeY; // 2D raycasting plane
 
+    
+
     void rotate(double angle);
 };
 

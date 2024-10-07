@@ -3,9 +3,11 @@
 #include "RaycastingEngine.h"
 #include "Map.h"
 #include "Shotgun.h"
+#include "Weapon.h"
 
 
 int main() {
+
     // Initialize the player
     Player player(1, 1, -1, 0, 0, 0.66);
 
@@ -13,7 +15,7 @@ int main() {
     RaycastingEngine engine(player);
     
     // Initialize shotgun
-    Shotgun shotgun("Assets/shotgun.png", "Assets/shotgunFire.png",screenWidth, screenHeight);
+    Shotgun shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
 
     // Create window
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");
@@ -27,20 +29,21 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        // Clock
+        double frameTime = clock.restart().asSeconds();
 
         // Clear window
         window.clear();
 
         // Render the frame
         engine.render(window, worldMap);
-        shotgun.render(window);
+        shotgun.render(window, frameTime);
 
 
         // Display rendered frame
         window.display();
 
         // Handle input and player movement
-        double frameTime = clock.restart().asSeconds();
         player.handleInput(worldMap, frameTime);
     }
 

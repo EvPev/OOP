@@ -8,7 +8,7 @@
 class Shotgun {
 public:
     Shotgun(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
-    void render(sf::RenderWindow& window);
+    void render(sf::RenderWindow& window, double frameTime);
 
 
 private:
@@ -19,6 +19,7 @@ private:
     sf::Sprite shotgunSprite;
     int screenWidth;
     int screenHeight;
+    double waitTime;
 };
 
 #endif
