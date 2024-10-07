@@ -1,3 +1,3 @@
-main: main.cpp RaycastingEngine.cpp Ray.cpp Player.cpp -lsfml-graphics -lsfml-window -lsfml-system
-	g++ -Wall -o test main.cpp RaycastingEngine.cpp Ray.cpp Player.cpp -lsfml-graphics -lsfml-window -lsfml-system
+main: main.cpp RaycastingEngine.cpp Ray.cpp Player.cpp Shotgun.cpp Assets/shotgun.png
+	g++ -Wall -o test main.cpp RaycastingEngine.cpp Ray.cpp Player.cpp Shotgun.cpp -lsfml-graphics -lsfml-window -lsfml-system
 	./test

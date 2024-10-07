@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "RaycastingEngine.h"
 #include "Map.h"
+#include "Shotgun.h"
 
 
 int main() {
@@ -10,6 +11,9 @@ int main() {
 
     // Initialize the raycasting engine
     RaycastingEngine engine(player);
+    
+    // Initialize shotgun
+    Shotgun shotgun(screenWidth, screenHeight);
 
     // Create window
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");
@@ -17,8 +21,8 @@ int main() {
     // Set up timing
     sf::Clock clock;
 
+    sf::Event event;
     while (window.isOpen()) {
-        sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
@@ -27,8 +31,10 @@ int main() {
         // Clear window
         window.clear();
 
-        // Render the scene
+        // Render the frame
         engine.render(window, worldMap);
+        shotgun.render(window);
+
 
         // Display rendered frame
         window.display();
