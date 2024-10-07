@@ -1,25 +1,13 @@
 #ifndef SHOTGUN_H
 #define SHOTGUN_H
+#include "Semi.h"
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-
-class Shotgun {
+class Shotgun: public Semi {
 public:
     Shotgun(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
-    void render(sf::RenderWindow& window, double frameTime);
+    void fire(sf::RenderWindow& window, double frameTime);
 
-
-private:
-    std::string defaultFile;
-    std::string fireFile;
-    sf::Texture defaultFrame;
-    sf::Texture fireFrame;
-    sf::Sprite shotgunSprite;
-    int screenWidth;
-    int screenHeight;
-    double waitTime;
+    ~Shotgun();
 };
 
 #endif

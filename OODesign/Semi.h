@@ -5,8 +5,9 @@
 
 class Semi: public Weapon {
 public:
-    Semi(std:string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
-    void fire();
+    Semi(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
+    void render(sf::RenderWindow& window, double frameTime);
+    virtual ~Semi();
 };
 
 #endif

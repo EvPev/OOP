@@ -6,4 +6,19 @@ Weapon::Weapon(std::string defaultFile, std::string fireFile, int screenWidth, i
 
     this->defaultFile = defaultFile;
     this->fireFile = fireFile;
+
+    // Loading the textures
+    if (!defaultFrame.loadFromFile(defaultFile)) {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    if (!fireFrame.loadFromFile(fireFile)) {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    sprite.setTexture(defaultFrame);
+    // Get sprite size
+    sf::FloatRect spriteBounds = sprite.getLocalBounds();
+    // Place sprite in corner
+    sprite.setPosition(screenWidth - spriteBounds.width, screenHeight - spriteBounds.height/1.3 );
 }
+
+Weapon::~Weapon() {};

@@ -2,8 +2,9 @@
 #include "Player.h"
 #include "RaycastingEngine.h"
 #include "Map.h"
-#include "Shotgun.h"
 #include "Weapon.h"
+#include "Semi.h"
+#include "Shotgun.h"
 
 
 int main() {
@@ -15,7 +16,7 @@ int main() {
     RaycastingEngine engine(player);
     
     // Initialize shotgun
-    Shotgun shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+    Weapon* shotgun = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
 
     // Create window
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");
@@ -37,7 +38,7 @@ int main() {
 
         // Render the frame
         engine.render(window, worldMap);
-        shotgun.render(window, frameTime);
+        shotgun->fire(window, frameTime);
 
 
         // Display rendered frame

@@ -8,7 +8,11 @@
 class Weapon {
 public:
     Weapon(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
-    virtual void fire() = 0;
+    virtual ~Weapon();
+    virtual void render(sf::RenderWindow& window, double frameTime) = 0;
+    virtual void fire(sf::RenderWindow& window, double frameTime) = 0;
+
+    
 
 
 protected:
@@ -19,6 +23,7 @@ protected:
     sf::Sprite sprite;
     int screenWidth;
     int screenHeight;
+    double waitTime;
 };
 
 #endif
