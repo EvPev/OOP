@@ -13,7 +13,7 @@ int main() {
     RaycastingEngine engine(player);
     
     // Initialize shotgun
-    Shotgun shotgun(screenWidth, screenHeight);
+    Shotgun shotgun("Assets/shotgun.png", "Assets/shotgunFire.png",screenWidth, screenHeight);
 
     // Create window
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");

@@ -1,19 +1,16 @@
-#include "Shotgun.h"
+#include "Weapon.h"
 #include <iostream>
 
 
-Shotgun::Shotgun(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight) {
+Weapon::Weapon(int screenWidth, int screenHeight) {
     this->screenHeight = screenHeight;
     this->screenWidth = screenWidth;
 
-    this->defaultFile = defaultFile;
-    this->fireFile = fireFile;
-
     // Loading the textures
-    if (!defaultFrame.loadFromFile(defaultFile)) {
+    if (!defaultFrame.loadFromFile("Assets/shotgun.png")) {
         std::cout << "Failed to load texture" << std::endl;
     }
-    if (!fireFrame.loadFromFile(fireFile)) {
+    if (!fireFrame.loadFromFile("Assets/shotgunFire.png")) {
         std::cout << "Failed to load texture" << std::endl;
     }
     shotgunSprite.setTexture(defaultFrame);

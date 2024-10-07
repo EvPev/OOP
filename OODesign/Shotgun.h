@@ -3,14 +3,17 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Shotgun {
 public:
-    Shotgun(int screenWidth, int screenHeight);
+    Shotgun(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
     void render(sf::RenderWindow& window);
 
 
 private:
+    std::string defaultFile;
+    std::string fireFile;
     sf::Texture defaultFrame;
     sf::Texture fireFrame;
     sf::Sprite shotgunSprite;
