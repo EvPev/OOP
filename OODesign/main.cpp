@@ -44,6 +44,5 @@ int main() {
         // Handle input and player movement
         player.handleInput(worldMap, frameTime);
     }
-    delete player;
     return 0;
 }

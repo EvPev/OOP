@@ -18,7 +18,7 @@ public:
     double getPlaneX() const { return planeX; }
     double getPlaneY() const { return planeY; }
 
-    Weapon* weapons[weaponCount];
+    Weapon** weapons;
 
 private:
     double posX, posY;     // Player position

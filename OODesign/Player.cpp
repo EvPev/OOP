@@ -6,6 +6,7 @@ Player::Player(double posX, double posY, double dirX, double dirY, double planeX
     : posX(posX), posY(posY), dirX(dirX), dirY(dirY), planeX(planeX), planeY(planeY) {
 
         weaponCount = 4;
+        weapons = new Weapon*[weaponCount];
 
         // Initiate Weapons
         weapons[0] = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
@@ -15,9 +16,11 @@ Player::Player(double posX, double posY, double dirX, double dirY, double planeX
     }
 
 Player::~Player(){
+
     for (int i = 0; i < weaponCount; i++) {
         delete weapons[i];
     }
+    delete[] weapons;
 }
 
 void Player::handleInput(const int worldMap[24][24], double frameTime) {
