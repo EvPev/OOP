@@ -10,13 +10,10 @@
 int main() {
 
     // Initialize the player
-    Player player(1, 1, -1, 0, 0, 0.66);
+    Player player(1, 1, -1, 0, 0, 0.66, screenWidth, screenHeight);
 
     // Initialize the raycasting engine
     RaycastingEngine engine(player);
-    
-    // Initialize shotgun
-    Weapon* shotgun = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
 
     // Create window
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");
@@ -38,7 +35,7 @@ int main() {
 
         // Render the frame
         engine.render(window, worldMap);
-        shotgun->fire(window, frameTime);
+        player.weapons[0]->fire(window, frameTime);
 
 
         // Display rendered frame
@@ -47,6 +44,6 @@ int main() {
         // Handle input and player movement
         player.handleInput(worldMap, frameTime);
     }
-
+    delete player;
     return 0;
 }

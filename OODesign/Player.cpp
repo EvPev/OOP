@@ -1,8 +1,24 @@
 #include "Player.h"
 #include <cmath>
 
-Player::Player(double posX, double posY, double dirX, double dirY, double planeX, double planeY)
-    : posX(posX), posY(posY), dirX(dirX), dirY(dirY), planeX(planeX), planeY(planeY) {}
+Player::Player(double posX, double posY, double dirX, double dirY, double planeX, double planeY, int screenWidth, int screenHeight)
+    // Initiate position
+    : posX(posX), posY(posY), dirX(dirX), dirY(dirY), planeX(planeX), planeY(planeY) {
+
+        weaponCount = 4;
+
+        // Initiate Weapons
+        weapons[0] = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+        weapons[1] = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+        weapons[2] = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+        weapons[3] = new Shotgun("Assets/shotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+    }
+
+Player::~Player(){
+    for (int i = 0; i < weaponCount; i++) {
+        delete weapons[i];
+    }
+}
 
 void Player::handleInput(const int worldMap[24][24], double frameTime) {
     double moveSpeed = frameTime * 5.0;
