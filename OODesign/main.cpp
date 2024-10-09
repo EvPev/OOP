@@ -1,4 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <fstream>
+#include <iostream>
+#include <string>
 #include "Player.h"
 #include "RaycastingEngine.h"
 #include "Map.h"
@@ -35,7 +38,7 @@ int main() {
 
         // Render the frame
         engine.render(window, worldMap);
-        player.weapons[0]->fire(window, frameTime);
+        player.weapons[player.getCurrentWeapon()]->fire(window, frameTime);
 
 
         // Display rendered frame
@@ -44,5 +47,29 @@ int main() {
         // Handle input and player movement
         player.handleInput(worldMap, frameTime);
     }
-    return 0;
+
+
+    player.setPlayerScore(2);
+
+
+    // Saving Player score
+    std::string playerScoreStr = "Game Score: " + std::to_string(player.getPlayerScore());
+
+    // Open the file in append mode
+    std::ofstream file;
+    file.open("PlayerScores.txt", std::ios::app);
+
+    // Check if the file is open
+    if (!file.is_open()) {
+        std::cout << "Failed to open the file." << std::endl;
+        return 1;
+    }
+    // Write to the file
+    file << playerScoreStr << "\n"; 
+
+    // Close the file
+    file.close();
+
+
+return 0;
 }

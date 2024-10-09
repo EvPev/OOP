@@ -18,6 +18,10 @@ public:
     double getPlaneX() const { return planeX; }
     double getPlaneY() const { return planeY; }
 
+    int getCurrentWeapon();
+    int getPlayerScore();
+    void setPlayerScore(int addScore);
+
     Weapon** weapons;
 
 private:
@@ -26,6 +30,11 @@ private:
     double planeX, planeY; // 2D raycasting plane
 
     int weaponCount;
+    int currentWeapon;
+
+    double waitTime;
+
+    int score;
 
     
    

@@ -18,7 +18,7 @@ Weapon::Weapon(std::string defaultFile, std::string fireFile, int screenWidth, i
     // Get sprite size
     sf::FloatRect spriteBounds = sprite.getLocalBounds();
     // Place sprite in corner
-    sprite.setPosition(screenWidth - spriteBounds.width, screenHeight - spriteBounds.height/1.3 );
+    sprite.setPosition(screenWidth - spriteBounds.width, screenHeight - spriteBounds.height);
 }
 
 Weapon::~Weapon() {};
