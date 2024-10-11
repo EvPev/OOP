@@ -1,9 +1,10 @@
 #include "RaycastingEngine.h"
 
+
 RaycastingEngine::RaycastingEngine(Player& player)
     : player(player) {}
 
-void RaycastingEngine::render(sf::RenderWindow& window, const int worldMap[24][24]) {
+void RaycastingEngine::render(sf::RenderWindow& window, const int worldMap[24][24], Enemy* enemies, int numEnemies) {
     for (int x = 0; x < screenWidth; x++) {
         // Calculate ray position and direction
         double cameraX = 2 * x / (double)screenWidth - 1;
@@ -39,5 +40,8 @@ void RaycastingEngine::render(sf::RenderWindow& window, const int worldMap[24][2
         line.setPosition(x, drawStart);
         line.setFillColor(color);
         window.draw(line);
+
+
+        
     }
 }

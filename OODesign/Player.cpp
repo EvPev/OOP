@@ -7,16 +7,15 @@ Player::Player(double posX, double posY, double dirX, double dirY, double planeX
     : posX(posX), posY(posY), dirX(dirX), dirY(dirY), planeX(planeX), planeY(planeY) {
 
         waitTime = 0;
-        weaponCount = 4;
+        weaponCount = 3;
         currentWeapon = 0;
         weapons = new Weapon*[weaponCount];
         score = 0;
 
         // Initiate Weapons
         weapons[0] = new Shotgun("Assets/cutShotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
-        weapons[1] = new Shotgun("Assets/pistol.png", "Assets/pistolFire.png", screenWidth, screenHeight);
-        weapons[2] = new Shotgun("Assets/cutShotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
-        weapons[3] = new Shotgun("Assets/cutShotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
+        weapons[1] = new Pistol("Assets/pistol.png", "Assets/pistolFire.png", screenWidth, screenHeight);
+        weapons[2] = new MG("Assets/mg42.png", "Assets/mg42Fire.png", screenWidth, screenHeight);
     }
 
 int Player::getCurrentWeapon() {return currentWeapon;}
@@ -73,8 +72,8 @@ void Player::handleInput(const int worldMap[24][24], double frameTime) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
             if (currentWeapon > 0) {
                 currentWeapon = currentWeapon - 1;
-            } else if (currentWeapon <= 0) {
-                currentWeapon = 3;
+            } else if (currentWeapon < 1) {
+                currentWeapon = weaponCount - 1;
             }
             waitTime = 0;
         }

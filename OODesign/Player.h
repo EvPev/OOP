@@ -3,6 +3,8 @@
 
 #include <SFML/Window.hpp>
 #include "Shotgun.h"
+#include "Pistol.h"
+#include "MG.h"
 
 class Player {
 public:

@@ -3,6 +3,8 @@
 Ray::Ray(double posX, double posY, double dirX, double dirY)
     : posX(posX), posY(posY), dirX(dirX), dirY(dirY) {}
 
+    
+
 void Ray::castRay(const int worldMap[24][24]) {
     mapX = int(posX);
     mapY = int(posY);
