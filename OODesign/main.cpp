@@ -25,6 +25,8 @@ int main() {
     if (!font.loadFromFile("Assets/Arial.ttf")) {
         return -1;
     }
+
+    // Design Start Text
     sf::Text startText;
     startText.setFont(font);
     startText.setString("Raycaster\nPress spacebar to begin");
@@ -32,6 +34,7 @@ int main() {
     startText.setFillColor(sf::Color::White);  // Text color
     startText.setPosition(100, 200);  // Text position
 
+    // Load In instruction text box texture
     sf::Texture instructionTexture;
     sf::Sprite instructionSprite;
 
@@ -41,19 +44,6 @@ int main() {
     instructionSprite.setTexture(instructionTexture);
     sf::FloatRect spriteBounds = instructionSprite.getLocalBounds();
     instructionSprite.setPosition((screenWidth - spriteBounds.width)/2, (screenHeight - spriteBounds.height)/2);
-
-
- 
-    std::ifstream endTextFile("PlayerScores.txt");
-    sf::Text endText;
-    endText.setFont(font);
-    endText.setString("temp");
-    endText.setCharacterSize(50);  // Set font size
-    endText.setFillColor(sf::Color::White);  // Text color
-    endText.setPosition(100, 200);  // Text position
-
-
-
 
 
 
@@ -83,25 +73,12 @@ int main() {
                 window.close();
         }
 
-        if (gameState == 1) {
-            // Clock
-            double frameTime = clock.restart().asSeconds();
-            timeToWin += clock.restart().asSeconds() * 10000;
-
-            // Clear window
-            window.clear();
-
-            // Render the frame
-            engine.render(window, worldMap, enemies, numEnemies);
-            player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY());
 
 
-            // Display rendered frame
-            window.display();
-
-            // Handle input and player movement
-            player.handleInput(worldMap, frameTime);
-        }   else if (gameState == 0) {
+//--------------------------
+// Game Start Screen Rendering and text
+//--------------------------
+        if (gameState == 0) {
             //start screen
             // Clear window
             window.clear();
@@ -121,7 +98,67 @@ int main() {
                 gameState = 1;
             }
 
-        }   else if (gameState == 2) {
+        }   
+
+
+
+//--------------------------
+// Main Game Loop
+//--------------------------
+        if (gameState == 1) {
+            // Clock
+            double frameTime = clock.restart().asSeconds();
+            timeToWin += clock.restart().asSeconds() * 10000;
+
+            // Clear window
+            window.clear();
+
+            // Render the frame
+            engine.render(window, worldMap, enemies, numEnemies);
+            player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY());
+
+
+            // Display rendered frame
+            window.display();
+
+            // Handle input and player movement
+            player.handleInput(worldMap, frameTime);
+
+
+        }   
+
+
+        
+//--------------------------
+// End game screen and text
+//--------------------------
+        if (gameState == 2) {
+            std::ifstream endTextFile("PlayerScores.txt");
+            std::string endTimeTemp;
+            int bestThreeTimes[3] {100000,100000,100000};
+            getline(endTextFile, endTimeTemp);
+            while (getline(endTextFile, endTimeTemp)) {
+                if (stoi(endTimeTemp) < bestThreeTimes[0]) {
+                    bestThreeTimes[0] = stoi(endTimeTemp);
+                } else if (stoi(endTimeTemp) < bestThreeTimes[1]) {
+                    bestThreeTimes[1] = stoi(endTimeTemp);
+                } else if (stoi(endTimeTemp) < bestThreeTimes[2]) {
+                    bestThreeTimes[2] = stoi(endTimeTemp);
+                }
+            }
+
+            std::string timesDisplayString;
+            timesDisplayString = timesDisplayString + "Current Time: " + std::to_string(timeToWin);
+            timesDisplayString = timesDisplayString + "\n \nPrevious Best Times:\n";
+            for (int i = 0; i < 3; i++) {
+                timesDisplayString = timesDisplayString + std::to_string(bestThreeTimes[i]) + "\n";
+            }
+            sf::Text endText;
+            endText.setFont(font);
+            endText.setString(timesDisplayString);
+            endText.setCharacterSize(50);  // Set font size
+            endText.setFillColor(sf::Color::White);  // Text color
+            endText.setPosition(10, 10);  // Text position
             // End screen
             // Clear window
             window.clear();
@@ -135,26 +172,30 @@ int main() {
     }
 
 
-    player.setPlayerScore(timeToWin);
+//--------------------------
+// Saving player win Time
+//--------------------------
+    if (timeToWin > 0) {
+        player.setPlayerScore(timeToWin);
+        std::string playerScoreStr =std::to_string(timeToWin);
 
+        // Open the file in append mode
+        std::ofstream file;
+        file.open("PlayerScores.txt", std::ios::app);
 
-    // Saving Player score
-    std::string playerScoreStr = "Time To Win: " + std::to_string(player.getPlayerScore());
+        // Check if the file is open
+        if (!file.is_open()) {
+            std::cout << "Failed to open the file." << std::endl;
+            return 1;
+        }
+        // Write to the file
+        file << playerScoreStr << "\n"; 
 
-    // Open the file in append mode
-    std::ofstream file;
-    file.open("PlayerScores.txt", std::ios::app);
-
-    // Check if the file is open
-    if (!file.is_open()) {
-        std::cout << "Failed to open the file." << std::endl;
-        return 1;
+        // Close the file
+        file.close();
     }
-    // Write to the file
-    file << playerScoreStr << "\n"; 
 
-    // Close the file
-    file.close();
+
 
 
 return 0;
