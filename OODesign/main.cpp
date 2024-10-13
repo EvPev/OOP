@@ -12,6 +12,8 @@
 #include "Enemy.h"
 #include <unistd.h>
 
+#define print(x) std::cout << x << std::endl
+
 int main() {
 
     // GameSate
@@ -26,8 +28,6 @@ int main() {
         return -1;
     }
 
-    
-    
 
     // Find the win location for supplyed map
     double winX = 0; // initialising coords
@@ -153,7 +153,7 @@ int main() {
             if (player.getPosX() < winX + lean && player.getPosX() > winX - lean) {     
                 if (player.getPosY() < winY + lean && player.getPosY() > winY - lean) {
                     gameState = 2;
-                    std::cout << "win";
+
                 }
             }     
         }   
