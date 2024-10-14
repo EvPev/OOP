@@ -17,17 +17,18 @@
 
 
 int main() {
-    // Initialise Player, enemy and window
+    // Initialise Player, enemy, window, and clock
     Player player(1, 1, -1, 0, 0, 0.66, screenWidth, screenHeight);
-    Enemy(10,10, screenWidth, screenHeight);
+    Enemy enemies[1] = {Enemy(2,2, screenWidth, screenHeight)};
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Raycaster");
-    double frameTime = clock.restart().asSeconds();
+    sf::Clock clock;
+
 
     // run the game (animations need frametime)
     for (int i = 0; i < 100; i++) {
         double frameTime = clock.restart().asSeconds();
+        player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
     }
-    player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
     // Check if its correct
     if (player.weapons[player.getCurrentWeapon()]->getHit() == true) {
         print("--------------");
@@ -39,7 +40,7 @@ int main() {
         print("--------------");
     }
 
-    player.weapons[player.getCurrentWeapon()]->resetHit()
+    player.weapons[player.getCurrentWeapon()]->resetHit();
 
 
     // Check if the weapon can miss
@@ -49,8 +50,8 @@ int main() {
     // run the game (animations need frametime)
     for (int i = 0; i < 100; i++) {
         double frameTime = clock.restart().asSeconds();
+        player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
     }
-    player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
     // Check if its correct
     if (player.weapons[player.getCurrentWeapon()]->getHit() == false) {
         print("--------------");

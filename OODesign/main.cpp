@@ -2,6 +2,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <unistd.h>
 #include "Player.h"
 #include "RaycastingEngine.h"
 #include "Map.h"
@@ -10,7 +13,6 @@
 #include "Shotgun.h"
 #include "Pistol.h"
 #include "Enemy.h"
-#include <unistd.h>
 
 #define print(x) std::cout << x << std::endl
 
@@ -176,19 +178,14 @@ int main() {
             std::string endTimeTemp;
 
             // Record The best 3 times
-            int bestThreeTimes[3] {100000,100000,100000}; // setting high times to be replaced by minimum times
-            getline(endTextFile, endTimeTemp);
-
-            // While loop to read all of the Previous Game times from txt file
+            std::vector<int> timesVec(100);
+            std::fill(timesVec.begin(), timesVec.end(), 10000);
+            int i = 0;
             while (getline(endTextFile, endTimeTemp)) { 
-                if (stoi(endTimeTemp) < bestThreeTimes[0]) {
-                    bestThreeTimes[0] = stoi(endTimeTemp);
-                } else if (stoi(endTimeTemp) < bestThreeTimes[1]) {
-                    bestThreeTimes[1] = stoi(endTimeTemp);
-                } else if (stoi(endTimeTemp) < bestThreeTimes[2]) {
-                    bestThreeTimes[2] = stoi(endTimeTemp);
-                }
+                timesVec[i] = stoi(endTimeTemp);
+                i++;
             }
+            std::sort(timesVec.begin(), timesVec.end());
 
             // Display the Best three times and current time
             std::string timesDisplayString; // Creating string to be displayed
@@ -197,7 +194,7 @@ int main() {
             // Including Previous best times
             timesDisplayString = timesDisplayString + "\n \nPrevious Best Times:\n"; 
             for (int i = 0; i < 3; i++) {
-                timesDisplayString = timesDisplayString + std::to_string(bestThreeTimes[i]) + "\n";
+                timesDisplayString = timesDisplayString + std::to_string(timesVec[i]) + "\n";
             }
 
             // Designing Text to be displayed
