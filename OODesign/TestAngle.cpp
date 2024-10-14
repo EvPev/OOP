@@ -92,7 +92,7 @@ int main() {
     enemy.render(window,player.getPosX(),player.getPosY(),player.getDirX(),player.getDirY());
 
     angle = enemy.getAngle();
-    correctAngle = pi/2; // Correct angle
+    correctAngle = pi/2 * (-1); // Correct angle
 
     // Check if its correct
     print("--------------");

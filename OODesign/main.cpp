@@ -71,7 +71,7 @@ int main() {
 
     // Initialize enemies
     int numEnemies = 1;
-    Enemy enemies[1] = {Enemy(2,2, screenWidth, screenHeight)};
+    Enemy enemies[1] = {Enemy(10,10, screenWidth, screenHeight)};
 
     // Initialize the raycasting engine
     RaycastingEngine engine(player);
@@ -139,8 +139,13 @@ int main() {
             // Render the frame
             engine.render(window, worldMap, enemies, numEnemies);
             enemies[0].render(window,player.getPosX(),player.getPosY(),player.getDirX(),player.getDirY());
-            player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY());
-            
+            //render player after walls so they go ontop
+            player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
+            // Check If enemy is hit
+            if (player.weapons[player.getCurrentWeapon()]->getHit() == true) {
+                enemies[0].changeHealth(-1);
+                player.weapons[player.getCurrentWeapon()]->resetHit();
+            }
 
             // Display rendered frame
             window.display();

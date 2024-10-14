@@ -8,9 +8,11 @@ MG::MG(std::string defaultFile, std::string fireFile, int screenWidth, int scree
     sprite.setPosition(screenWidth - spriteBounds.width + 250, screenHeight +250 -spriteBounds.height);
 };
 
-void MG::fire(sf::RenderWindow& window, double frameTime, double posX, double posY, double dirX, double dirY) {
+void MG::fire(sf::RenderWindow& window, double frameTime, double posX, double posY, double dirX, double dirY, double eposX, double eposY) {
     render(window, frameTime);
-    Ray(posX, posY, dirX, dirY);
+    if (abs(eposX - posX) < 5 && abs(eposY - posY) < 5) {
+        hit = true;
+    }
 }
 
 

@@ -10,8 +10,9 @@ public:
     Weapon(std::string defaultFile, std::string fireFile, int screenWidth, int screenHeight);
     virtual ~Weapon();
     virtual void render(sf::RenderWindow& window, double frameTime) = 0;
-    virtual void fire(sf::RenderWindow& window, double frameTime, double posX, double posY, double dirX, double dirY) = 0;
-
+    virtual void fire(sf::RenderWindow& window, double frameTime, double posX, double posY, double dirX, double dirY, double eposX, double eposY) = 0;
+    bool getHit();
+    void resetHit();
     
 
 
@@ -24,6 +25,7 @@ protected:
     int screenWidth;
     int screenHeight;
     double waitTime;
+    bool hit;
 };
 
 #endif

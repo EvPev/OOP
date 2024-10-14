@@ -6,6 +6,7 @@ Weapon::Weapon(std::string defaultFile, std::string fireFile, int screenWidth, i
 
     this->defaultFile = defaultFile;
     this->fireFile = fireFile;
+    hit = false;
 
     // Loading the textures
     if (!defaultFrame.loadFromFile(defaultFile)) {
@@ -22,3 +23,8 @@ Weapon::Weapon(std::string defaultFile, std::string fireFile, int screenWidth, i
 }
 
 Weapon::~Weapon() {};
+
+
+// set and get for if the enemy is hit
+void Weapon::resetHit() {hit = false;}
+bool Weapon::getHit() {return hit;}
