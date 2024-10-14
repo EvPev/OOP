@@ -3,7 +3,7 @@
 #include <iostream>
 
 Player::Player(double posX, double posY, double dirX, double dirY, double planeX, double planeY, int screenWidth, int screenHeight)
-    // Initiate position
+    // Initialise position
     : posX(posX), posY(posY), dirX(dirX), dirY(dirY), planeX(planeX), planeY(planeY) {
 
         waitTime = 0;
@@ -12,14 +12,15 @@ Player::Player(double posX, double posY, double dirX, double dirY, double planeX
         weapons = new Weapon*[weaponCount];
         score = 0;
 
-        // Initiate Weapons
+        // Initialise Weapons
         weapons[0] = new Shotgun("Assets/cutShotgun.png", "Assets/shotgunFire.png", screenWidth, screenHeight);
         weapons[1] = new Pistol("Assets/pistol.png", "Assets/pistolFire.png", screenWidth, screenHeight);
         weapons[2] = new MG("Assets/mg42.png", "Assets/mg42Fire.png", screenWidth, screenHeight);
     }
 
-int Player::getCurrentWeapon() {return currentWeapon;}
 
+// Set and get funcitons
+int Player::getCurrentWeapon() {return currentWeapon;}
 int Player::getPlayerScore() {return score;}
 void Player::setPlayerScore(int addScore) {score += addScore;}
 void Player::setPosX(double x) {posX = x;}
@@ -27,14 +28,15 @@ void Player::setPosY(double y) {posY = y;}
 void Player::setDirX(double x) {dirX = x;}
 void Player::setDirY(double y) {dirY = y;}
 
+// Destructor
 Player::~Player(){
-
     for (int i = 0; i < weaponCount; i++) {
         delete weapons[i];
     }
     delete[] weapons;
 }
 
+// Input handling function
 void Player::handleInput(const int worldMap[24][24], double frameTime) {
     double moveSpeed = frameTime * 5.0;
     double rotSpeed = frameTime * 3.0;

@@ -1,10 +1,12 @@
 #include "Ray.h"
 
+// Constructor
 Ray::Ray(double posX, double posY, double dirX, double dirY)
     : posX(posX), posY(posY), dirX(dirX), dirY(dirY) {}
 
     
 
+// Ray Casting Function
 void Ray::castRay(const int worldMap[24][24]) {
     mapX = int(posX);
     mapY = int(posY);
@@ -28,6 +30,7 @@ void Ray::castRay(const int worldMap[24][24]) {
         sideDistY = (mapY + 1.0 - posY) * deltaDistY;
     }
 
+    // As long as the ray hasn't hit a wall continue scanning
     int hit = 0;
     while (hit == 0) {
         if (sideDistX < sideDistY) {
@@ -42,6 +45,7 @@ void Ray::castRay(const int worldMap[24][24]) {
         if (worldMap[mapX][mapY] > 0) hit = 1;
     }
 
+    // check if ray hit a vertical or horisontal wall face
     if (side == 0) perpWallDist = (sideDistX - deltaDistX);
     else perpWallDist = (sideDistY - deltaDistY);
 }

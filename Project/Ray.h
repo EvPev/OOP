@@ -6,10 +6,13 @@
 
 class Ray {
 public:
+    // Constructor
     Ray(double posX, double posY, double dirX, double dirY);
 
+    // Cast individual Ray function
     void castRay(const int worldMap[24][24]);
 
+    // functions to access already public constant values from map.h
     double getPerpWallDist() const { return perpWallDist; }
     int getMapX() const { return mapX; }
     int getMapY() const { return mapY; }

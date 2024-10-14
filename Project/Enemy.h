@@ -21,20 +21,29 @@ class Enemy
         sf::Sprite sprite;
 
     public:
+        // Constructor
         Enemy(double posX, double posY, int screenWidth, int screenHeight);
+
+        // Destructor
         ~Enemy();
+
+        // Move function
         void move();
+
+        // Attack function
         void attack(double playerPosX, double playerPosY, double frameTime);
 
+        // set and get functions
         void changeHealth(int change);
         int getHealth();
         double getPosX();
         double getPosY();
         double getAngle();
-
         void setPosX(double x);
         void setPosY(double y);
 
+
+        // render enemy function
         void render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY);
 };
 
