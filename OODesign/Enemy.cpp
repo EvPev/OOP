@@ -44,9 +44,9 @@ void Enemy::render(sf::RenderWindow& window, double pPosX, double pPosY, double 
 
     
     // Calculate the Angle the enemy is from the player
-    double ABBCDot = ((posX - pPosX) * (pDirX)) + ((posY - pPosY) * (pDirY));
+    double ABBCDot = ((posX - pPosX) * (pDirX - pPosX)) + ((posY - pPosY) * (pDirY - pPosY));
 
-    double ABBCDist = ((abs(pPosX - posX)) + (abs(pPosY - posY))) * ((abs(pDirX)) + (abs(pDirY)));
+    double ABBCDist = ((abs(pPosX - posX)) + (abs(pPosY - posY))) * ((abs(pPosX - pDirX)) + (abs(pPosY - pDirY)));
 
     Angle = acos(ABBCDot / ABBCDist); //Positive angle from player (same on left and right)
 
@@ -56,29 +56,29 @@ void Enemy::render(sf::RenderWindow& window, double pPosX, double pPosY, double 
     bool OnLeft = false;
 
     // If Player has first and fourth quadrent direction vector
-    if ((pDirX) > 0) {
-        double h = ((posX - pPosX) / (pDirX + pPosX)); // Calculating if enemy is above or below the line created by the direction vector
+    if ((pDirX - pPosX) > 0) {
+        double h = ((posX - pPosX) / pDirX); // Calculating if enemy is above or below the line created by the direction vector
         double lineY = ((pPosY + h) * pDirY); // Calculating the Y value of the line at the X value of the enemy
 
         if (posY > lineY) {OnLeft = true;}
     }
 
     // If Player has Second or Third quadrent direction vector
-    else if ((pDirX) < 0) {
-        double h = ((posX - pPosX) / (pDirX + pPosX)); // Calculating if enemy is above or below the line created by the direction vector
+    else if ((pDirX - pPosX) < 0) {
+        double h = ((posX - pPosX) / pDirX); // Calculating if enemy is above or below the line created by the direction vector
         double lineY = ((pPosY + h) * pDirY); // Calculating the Y value of the line at the X value of the enemy
 
         if (posY < lineY) {OnLeft = true;}
     }
 
     // If Player's direction vector is between quads 1 and 2
-    else if ((pDirX) == 0 && (pDirY) > 0) {
+    else if ((pDirX - pPosX) == 0 && (pDirY - pPosY) > 0) {
         
         if (posX < pPosX) {OnLeft = true;}
     }
 
     // If Player's direction vector is between quads 3 and 4
-    else if ((pDirX - pPosX) == 0 && (pDirY) < 0) {
+    else if ((pDirX - pPosX) == 0 && (pDirY - pPosY) < 0) {
         
         if (posX > pPosX) {OnLeft = true;}
     }

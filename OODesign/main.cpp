@@ -138,7 +138,7 @@ int main() {
 
             // Render the frame
             engine.render(window, worldMap, enemies, numEnemies);
-            enemies[0].render(window,player.getPosX(),player.getPosY(),player.getDirX(),player.getDirY());
+            //enemies[0].render(window,player.getPosX(),player.getPosY(),player.getDirX(),player.getDirY());
             //render player after walls so they go ontop
             player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY(), enemies[0].getPosX(), enemies[0].getPosY());
             // Check If enemy is hit
