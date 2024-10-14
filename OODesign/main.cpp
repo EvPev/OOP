@@ -138,8 +138,9 @@ int main() {
 
             // Render the frame
             engine.render(window, worldMap, enemies, numEnemies);
+            enemies[0].render(window,player.getPosX(),player.getPosY(),player.getDirX(),player.getDirY());
             player.weapons[player.getCurrentWeapon()]->fire(window, frameTime, player.getPosX(), player.getPosY(),player.getDirX(), player.getDirY());
-
+            
 
             // Display rendered frame
             window.display();

@@ -1,0 +1,14 @@
+Changes from plan
+Weapon class now has an abstract function render (didn't know you had to render the texture in SFML)
+Semi and Auto now handle the rending instead of firning (learned how rendering and fire calcs work)
+
+Changed which weapons I have (just found better assets for the shotgun and MG)
+
+Bullet class removed (decided having an actual bullet entity would be unnecesarily hard
+                      firing now handled by the shotgun, pistol, and MG classes)
+
+Player and Hostile classes no longer inherit from entity class (Players aren't really entities they're more of a camera)
+
+RayCastingEngine holds rays instead of entities (removed entity, also the engine uses the rays so it just works better)
+
+Removed Texture class (Textured walls was just to hard, Textures now done by RayCastingEngine, just colours though)

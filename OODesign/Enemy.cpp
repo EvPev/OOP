@@ -1,5 +1,8 @@
 #include "Enemy.h"
 #include <cmath>
+#include <iostream>
+#define print(x) std::cout << x << std::endl
+
 
 Enemy::Enemy(double posX, double posY, int screenWidth, int screenHeight) {
 this-> posX = posX;
@@ -28,19 +31,91 @@ void Enemy::changeHealth(int change) {health += change;}
 int Enemy::getHealth() {return health;}
 double Enemy::getPosX() {return posX;}
 double Enemy::getPosY() {return posY;}
+double Enemy::getAngle() {return Angle;}
+
+void Enemy::setPosX(double x) {posX = x;}
+void Enemy::setPosY(double y) {posY = y;}
 
 
-
-
-void Enemy::render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY, double planeX, double planeY) {
+void Enemy::render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY) {
     sf::FloatRect spriteBounds = sprite.getLocalBounds();
-    sprite.setPosition((screenWidth - spriteBounds.width)/2, (screenHeight - spriteBounds.height)/2);
 
-    distFromPlayer = abs(pPosX - posY);
-    distFromPlayer = abs(pPosY - posX);
+    distFromPlayer = abs(pPosX - posX) + abs(pPosY - posY);
 
 
     
-    sprite.setPosition(screenWidth - spriteBounds.width, screenHeight - spriteBounds.height);
+    // Calculate the Angle the enemy is from the player
+    double ABBCDot = ((posX - pPosX) * (pDirX - pPosX)) + ((posY - pPosY) * (pDirY - pPosY));
+
+    double ABBCDist = ((abs(pPosX - posX)) + (abs(pPosY - posY))) * ((abs(pPosX - pDirX)) + (abs(pPosY - pDirY)));
+
+    Angle = acos(ABBCDot / ABBCDist); //Positive angle from player (same on left and right)
+
+    print(Angle);
+    
+    // Calculating if enemy is on the left or right of player
+    enum side {
+        Left,
+        Front,
+        Right,
+        Behind
+    };
+
+    side currentSide = Behind;
+
+    // If Player has first and fourth quadrent direction vector
+    if ((pDirX - pPosX) > 0) {
+        double h = ((posX - pPosX) / pDirX); // Calculating if enemy is above or below the line created by the direction vector
+        double lineY = ((pPosY + h) * pDirY); // Calculating the Y value of the line at the X value of the enemy
+
+        if (posY > lineY) {currentSide = Left;}
+        if (posY < lineY) {currentSide = Right;}
+        if (posY == lineY && posX > pPosX) {currentSide = Front;}
+        else{currentSide = Behind;}
+    }
+
+    // If Player has Second or Third quadrent direction vector
+    else if ((pDirX - pPosX) < 0) {
+        double h = ((posX - pPosX) / pDirX); // Calculating if enemy is above or below the line created by the direction vector
+        double lineY = ((pPosY + h) * pDirY); // Calculating the Y value of the line at the X value of the enemy
+
+        if (posY < lineY) {currentSide = Left;}
+        if (posY > lineY) {currentSide = Right;}
+        if (posY == lineY && posX < pPosX) {currentSide = Front;}
+        else{currentSide = Behind;}
+    }
+
+    // If Player's direction vector is between quads 1 and 2
+    else if ((pDirX - pPosX) == 0 && (pDirY - pPosY) > 0) {
+        
+        if (posX < pPosX) {currentSide = Left;}
+        if (posX > pPosX) {currentSide = Right;}
+        if (posY > pPosY && posX == pPosX) {currentSide = Front;}
+        else{currentSide = Behind;}
+    }
+
+    // If Player's direction vector is between quads 3 and 4
+    else if ((pDirX - pPosX) == 0 && (pDirY - pPosY) < 0) {
+        
+        if (posX > pPosX) {currentSide = Left;}
+        if (posX < pPosX) {currentSide = Right;}
+        if (posY < pPosY && posX == pPosX) {currentSide = Front;}
+        else{currentSide = Behind;}
+    }
+
+    // If the enemy is to the left of the player make the angle negetive
+    if (currentSide == Left) {Angle = Angle * (-1);}
+
+    //Based on the Angle find the pixle of the screen the centre of the sprite should be
+    double screenPosition = ((2 * Angle * screenWidth) / 3.1415926) + 600;
+    
+
+
+    sprite.setPosition((screenPosition - spriteBounds.width/2)/2, (screenHeight - spriteBounds.height/2)/2);
+    print("------------");
+    print(screenPosition);
+    print(Angle);
+    print("------------");
+
     window.draw(sprite);
 }

@@ -19,10 +19,18 @@ public:
     double getDirY() const { return dirY; }
     double getPlaneX() const { return planeX; }
     double getPlaneY() const { return planeY; }
-
     int getCurrentWeapon();
     int getPlayerScore();
+
     void setPlayerScore(int addScore);
+    void setPosX(double x);
+    void setPosY(double y);
+    void setDirX(double x);
+    void setDirY(double y);
+
+
+    
+    
 
     Weapon** weapons;
 

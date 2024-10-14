@@ -15,6 +15,8 @@ class Enemy
 
         int screenWidth, screenHeight; // Screen Size
 
+        double Angle; // Angle from player
+
         sf::Texture texture;
         sf::Sprite sprite;
 
@@ -28,8 +30,12 @@ class Enemy
         int getHealth();
         double getPosX();
         double getPosY();
+        double getAngle();
 
-        void render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY, double planeX, double planeY);
+        void setPosX(double x);
+        void setPosY(double y);
+
+        void render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY);
 };
 
 #endif

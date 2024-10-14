@@ -22,8 +22,10 @@ int Player::getCurrentWeapon() {return currentWeapon;}
 
 int Player::getPlayerScore() {return score;}
 void Player::setPlayerScore(int addScore) {score += addScore;}
-
-
+void Player::setPosX(double x) {posX = x;}
+void Player::setPosY(double y) {posY = y;}
+void Player::setDirX(double x) {dirX = x;}
+void Player::setDirY(double y) {dirY = y;}
 
 Player::~Player(){
 
