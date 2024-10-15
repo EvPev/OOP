@@ -156,7 +156,7 @@ int main() {
             player.handleInput(worldMap, frameTime);
 
             // Check If Player Has Won
-            double lean = 0.9;
+            double lean = 1.5;
             // Check Player position vs win position
             if (player.getPosX() < winX + lean && player.getPosX() > winX - lean) {     
                 if (player.getPosY() < winY + lean && player.getPosY() > winY - lean) {

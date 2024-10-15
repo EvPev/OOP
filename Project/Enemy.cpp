@@ -4,13 +4,14 @@
 #define print(x) std::cout << x << std::endl
 
 
+// Constructor
 Enemy::Enemy(double posX, double posY, int screenWidth, int screenHeight) {
 this-> posX = posX;
 this-> posY = posY;
 waitTime = 0;
 health = 3;
 damage = 1;
-distFromPlayer = 0;
+distFromPlayer = new double;
 this->screenWidth = screenWidth;
 this->screenHeight = screenHeight;
 // Loading the textures
@@ -20,13 +21,20 @@ this->screenHeight = screenHeight;
     sprite.setTexture(texture);
 }
 
+// Destructor
+Enemy::~Enemy() {
+    delete distFromPlayer;
+}
 
-Enemy::~Enemy() {}
+// Move Function
 void Enemy::move() {}
+
+// function to attack player
 void Enemy::attack(double playerPosX, double playerPosY, double frameTime) {
     waitTime = waitTime + frameTime;
 }
 
+// Set and get function
 void Enemy::changeHealth(int change) {health += change;}
 int Enemy::getHealth() {return health;}
 double Enemy::getPosX() {return posX;}
@@ -37,10 +45,11 @@ void Enemy::setPosX(double x) {posX = x;}
 void Enemy::setPosY(double y) {posY = y;}
 
 
+// Render Function
 void Enemy::render(sf::RenderWindow& window, double pPosX, double pPosY, double pDirX, double pDirY) {
     sf::FloatRect spriteBounds = sprite.getLocalBounds();
 
-    distFromPlayer = abs(pPosX - posX) + abs(pPosY - posY);
+    *distFromPlayer = abs(pPosX - posX) + abs(pPosY - posY);
 
     
     // Calculate the Angle the enemy is from the player

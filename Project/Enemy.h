@@ -11,7 +11,7 @@ class Enemy
         int health, damage; // Enemy stats
         double waitTime; // Timer
 
-        double distFromPlayer; // Distance from Player
+        double* distFromPlayer; // Distance from Player
 
         int screenWidth, screenHeight; // Screen Size
 
