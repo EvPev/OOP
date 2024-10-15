@@ -22,7 +22,7 @@ Player::Player(double posX, double posY, double dirX, double dirY, double planeX
 // Set and get funcitons
 int Player::getCurrentWeapon() {return currentWeapon;}
 int Player::getPlayerScore() {return score;}
-void Player::setPlayerScore(int addScore) {score += addScore;}
+void Player::setPlayerScore(int addScore) {score = addScore;}
 void Player::setPosX(double x) {posX = x;}
 void Player::setPosY(double y) {posY = y;}
 void Player::setDirX(double x) {dirX = x;}
