@@ -29,6 +29,7 @@
 
 
 int main () {
+    for (int k = 0; k < 4; k++){
     // Initialize the player and time to win testing variable
     Player player(1, 1, -1, 0, 0, 0.66, screenWidth, screenHeight);
     int timeToWin = 0;
@@ -88,4 +89,5 @@ int main () {
     }
 
     std::remove("PlayerScoresTest.txt");
+}
 }
