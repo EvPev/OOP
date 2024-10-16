@@ -25,12 +25,15 @@ public:
         if (_file.is_open()) {
             string line;
             while (std::getline(_file, line)) {
+
+                // Check if the number is made of nums or chars
                 bool isNum = true;
                 for (unsigned int i = 0; i < line.size(); i++) {
                     if (isdigit(line[0]) != true) {
                         isNum = false;
                     }
                 }
+
                 if (line.size() != 5) {
                     throw("Wrong argument when reading the file: too many digits");
                 } else if (isNum != true){
