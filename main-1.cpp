@@ -5,13 +5,14 @@
 #define print(x) std::cout << x << std::endl;
 
 int main() {
-    Utils A;
-    GameEntity E1(0, 0, GameEntity::NoneType);
-    GameEntity E2(1, 1, GameEntity::NoneType);
+    std::tuple pos1= Utils::generateRandomPos(10,10);
+    std::tuple pos2= Utils::generateRandomPos(10,10);
+    GameEntity E1(std::get<0>(pos1), std::get<1>(pos1), GameEntity::NoneType);
+    GameEntity E2(std::get<0>(pos2), std::get<1>(pos2), GameEntity::NoneType);
 
     double dif = 0;
 
-    dif = A.calculateDistance(E1.getPos(), E2.getPos());
+    dif = Utils::calculateDistance(E1.getPos(), E2.getPos());
 
     print(dif);
 }
