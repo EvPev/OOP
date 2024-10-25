@@ -16,11 +16,13 @@ class Game: public Interactable
         int* grid;
         Scientist player;
     public:
-        Game(int width, int height, std::vector<std::pair<int, int>> experimentCoordinates) {
-            grid = grid[height,width];
-        }
-        Scientist player(1,1);
+        Game(int width, int height, std::vector<std::pair<int, int>> experimentCoordinates);
 }
 
 
 #endif
+
+        Game::Game(int width, int height, std::vector<std::pair<int, int>> experimentCoordinates) {
+            grid = grid[height,width];
+            Scientist player(1,1);
+        }
