@@ -7,14 +7,22 @@
 class Experiment: public Interactable
 {
     public:
-        Experiment(int x, int y, int width, int height) {
+        Experiment(int x, int y, int width, int height);
+
+        bool interact(Scientist* player);
+
+};
+#endif
+
+
+Experiment::Experiment(int x, int y, int width, int height) {
             posX = x;
             posY = y;
             this->width = width;
             this-> height = height;
         }
 
-        bool interact(Scientist* player) {
+        bool Experiment::interact(Scientist* player) {
             if (Helper::manhattanDistance(getCoordinates(), player->getCoordinates()) == 0) {
                 player->runExperiment();
             }
@@ -23,7 +31,3 @@ class Experiment: public Interactable
             }
             else {return false;}
         }
-};
-
-
-#endif

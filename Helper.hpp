@@ -6,12 +6,14 @@
 
 class Helper
 {
-   static int manhattanDistance(std::pair<int, int> item1, std::pair<int, int> item2) {
-        int dist = abs(item1.first - item2.first) + abs(item1.second - item2.second);
-        return dist;
-   }
+   static int manhattanDistance(std::pair<int, int> item1, std::pair<int, int> item2);
+   
 
 };
 
 #endif
 
+int Helper::manhattanDistance(std::pair<int, int> item1, std::pair<int, int> item2) {
+        int dist = abs(item1.first - item2.first) + abs(item1.second - item2.second);
+        return dist;
+   }

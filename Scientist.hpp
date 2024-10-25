@@ -8,7 +8,19 @@ class Scientist: public GridItem
     protected:
         int experimentCount;
     public:
-        Scientist(int gridWidth, int gridHeight) {
+        Scientist(int gridWidth, int gridHeight);
+        }
+
+        int getExperimentCount();
+        void runExperiment();
+
+        bool move(int xOffset, int yOffset);
+};
+
+
+#endif
+
+Scientist::Scientist(int gridWidth, int gridHeight) {
             width = gridWidth;
             height = gridHeight;
             posX = 0;
@@ -16,16 +28,12 @@ class Scientist: public GridItem
             experimentCount = 0;
         }
 
-        int getExperimentCount() {return experimentCount;}
-        void runExperiment() {experimentCount++;}
+        int Scientist::getExperimentCount() {return experimentCount;}
+        void Scientist::runExperiment() {experimentCount++;}
 
-        bool move(int xOffset, int yOffset){
+        bool Scientist::move(int xOffset, int yOffset){
             if (xOffset <= 2 && yOffset <= 2) {
                 posX = posX + xOffset;
                 posY = posY + yOffset;
             }
         }
-};
-
-
-#endif

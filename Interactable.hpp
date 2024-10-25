@@ -14,20 +14,29 @@ class Interactable: public GridItem
     protected:
         
     public:
-        Interactable(int x, int y, int width, int height) {
+        Interactable(int x, int y, int width, int height);
+        }
+        Interactable();
+
+        virtual bool interact(Scientist* player) = 0;
+        InteractableType getType() = 0;
+        static int getActiveInteractableCount();
+        ~Interactable();
+};
+
+
+#endif
+
+
+  Interactable::Interactable(int x, int y, int width, int height) {
             posX = x;
             posY = y;
             this->width = width;
             this->height = height;
             activeInteractableCount++;
         }
-        Interactable() : Interactable(0,0,0,0) {}
+        Interactable::Interactable() : Interactable(0,0,0,0) {}
 
-        virtual bool interact(Scientist* player) = 0;
-        InteractableType getType() = 0;
-        static int getActiveInteractableCount() {return activeInteractableCount}
-        ~Interactable() {activeInteractableCount--;}
-};
-
-
-#endif
+         bool Interactable:interact(Scientist* player) = 0;
+        Interactable::int getActiveInteractableCount() {return activeInteractableCount}
+        Interactable::~Interactable() {activeInteractableCount--;}
