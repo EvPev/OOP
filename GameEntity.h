@@ -15,7 +15,7 @@ class GameEntity {
             NoneType,
             ShipType
         };
-    private:
+    protected:
         std::tuple<int,int> position;
         
         enum GameEntityType type;
@@ -26,6 +26,9 @@ class GameEntity {
 
         std::tuple<int,int> getPos();
         GameEntityType getType();
+
+        void setPos(std::tuple<int,int> pos);
+        void setType(GameEntityType type);
 };
 
 #endif
