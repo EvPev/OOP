@@ -1,3 +1,3 @@
-main-1: main-1.cpp
-	g++ -Wall -o test 
+main: main.cpp
+	g++ -Wall -o test main.cpp
 	./test
