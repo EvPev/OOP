@@ -8,11 +8,11 @@ enum InteractableType{
     EXPERIMENT
 };
 
-
+static int activeInteractableCount;
 class Interactable: public GridItem
 {
     protected:
-        static int activeInteractableCount;
+        
     public:
         Interactable(int x, int y, int width, int height) {
             posX = x;
@@ -25,7 +25,7 @@ class Interactable: public GridItem
 
         virtual bool interact(Scientist* player) = 0;
         InteractableType getType() = 0;
-        int getActiveInteractableCount() {return}
+        static int getActiveInteractableCount() {return activeInteractableCount}
         ~Interactable() {activeInteractableCount--;}
 };
 

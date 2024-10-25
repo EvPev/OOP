@@ -6,7 +6,7 @@
 class Scientist: public GridItem
 {
     protected:
-    int experimentCount;
+        int experimentCount;
     public:
         Scientist(int gridWidth, int gridHeight) {
             width = gridWidth;

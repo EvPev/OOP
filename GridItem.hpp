@@ -2,7 +2,7 @@
 #define GRIDITEM_HPP
 
 #include <utility>
-
+static int itemCount = 0;
 class GridItem
 {
     protected:
@@ -10,7 +10,7 @@ class GridItem
         int posY;
         int width;
         int height;
-        static int itemCount;
+        
 
     public:
         GridItem(int x, int y, int width, int height) {
@@ -18,6 +18,7 @@ class GridItem
             posY = y;
             this->width = width;
             this->height = height;
+            itemCount++;
         }
         GridItem(): GridItem(0,0,0,0) {}
 
@@ -34,7 +35,7 @@ class GridItem
         static void setItemCount(int num) {itemCount = num;}
         int getGridWidth() {return width;}
         int getGridHeight() {return height;}
-        int getActiveGridItemCount() {return itemCount;}
+        static int getActiveGridItemCount() {return itemCount;}
         virtual ~GridItem() {itemCount--;}
 };
 

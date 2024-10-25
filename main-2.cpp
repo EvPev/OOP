@@ -3,9 +3,11 @@
 #include "Goal.hpp"
 #include "Interactable.hpp"
 #include "Experiment.hpp"
+#include <iostream>
+#define print(x) std::cout << x << std::endl;
 
 int main() {
-    GridItem::setItemCount(0);
-    GridItem(1,1,2,2);
 
+    GridItem player(1,1,2,2);
+    print(player.getActiveGridItemCount());
 }
