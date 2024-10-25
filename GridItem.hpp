@@ -13,31 +13,46 @@ class GridItem
         
 
     public:
-        GridItem(int x, int y, int width, int height) {
-            posX = x;
-            posY = y;
-            this->width = width;
-            this->height = height;
-            itemCount++;
-        }
-        GridItem(): GridItem(0,0,0,0) {}
+        GridItem(int x, int y, int width, int height);
+        GridItem();
 
-        void setCoordinates(int x, int y) {
-            posX = x;
-            posY = y;
-        }
+        void setCoordinates(int x, int y);
 
-        std::pair<int,int> getCoordinates() {
-            std::pair <int,int> position(posX, posY);
-            return position;
-        }
+        std::pair<int,int> getCoordinates();
 
-        static void setItemCount(int num) {itemCount = num;}
-        int getGridWidth() {return width;}
-        int getGridHeight() {return height;}
-        static int getActiveGridItemCount() {return itemCount;}
-        virtual ~GridItem() {itemCount--;}
+        static void setItemCount(int num);
+        int getGridWidth();
+        int getGridHeight();
+        static int getActiveGridItemCount();
+        virtual ~GridItem();
 };
 
 
 #endif
+
+
+ GridItem::GridItem(int x, int y, int width, int height) {
+    posX = x;
+    posY = y;
+    this->width = width;
+    this->height = height;
+    itemCount++;
+}
+GridItem::GridItem(): GridItem(0,0,0,0) {}
+
+void GridItem::setCoordinates(int x, int y) {
+    posX = x;
+    posY = y;
+}
+
+std::pair<int,int> GridItem::getCoordinates() {
+    std::pair <int,int> position(posX, posY);
+    return position;
+}
+
+static void GridItem::setItemCount(int num) {itemCount = num;}
+int GridItem::getGridWidth() {return width;}
+int GridItem::getGridHeight() {return height;}
+static int GridItem::getActiveGridItemCount() {return itemCount;}
+virtual GridItem::~GridItem() {itemCount--;}
+

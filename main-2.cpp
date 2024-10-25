@@ -9,5 +9,5 @@
 int main() {
 
     GridItem player(1,1,2,2);
-    print(player.getActiveGridItemCount());
+    print(GridItem::getActiveGridItemCount());
 }

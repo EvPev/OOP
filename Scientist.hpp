@@ -25,7 +25,6 @@ class Scientist: public GridItem
                 posY = posY + yOffset;
             }
         }
-
 };
 
 

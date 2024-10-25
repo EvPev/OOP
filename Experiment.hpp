@@ -23,7 +23,7 @@ class Experiment: public Interactable
             }
             else {return false;}
         }
-}
+};
 
 
 #endif
