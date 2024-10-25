@@ -50,9 +50,9 @@ std::pair<int,int> GridItem::getCoordinates() {
     return position;
 }
 
-static void GridItem::setItemCount(int num) {itemCount = num;}
+void GridItem::setItemCount(int num) {itemCount = num;}
 int GridItem::getGridWidth() {return width;}
 int GridItem::getGridHeight() {return height;}
-static int GridItem::getActiveGridItemCount() {return itemCount;}
-virtual GridItem::~GridItem() {itemCount--;}
+int GridItem::getActiveGridItemCount() {return itemCount;}
+GridItem::~GridItem() {itemCount--;}
 
